@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/OIG4-removebg-preview.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AniRem - Watch anime online in HD for FREE</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rock+Salt&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <script type="module" crossorigin src="/assets/index-V876AQju1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-QCBgOqK81.css">
+
+    <style>
+        body {
+            /* overflow: hidden; */
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: black; /* Change scrollbar background color to black */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #aaa;
+            border-radius: 5px;
+            border: 2px solid #f5f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #888;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #333;
+            z-index: 9999;
+            text-align: center;
+            max-width: 300px;
+            animation: swirlIn 1s forwards;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        .popup.swirl-out {
+            animation: swirlOut 1s forwards;
+        }
+
+        .gotchu-button {
+            display: inline-block;
+            width: 120px;
+            padding: 8px 0;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .gotchu-button:hover {
+            background-color: #cc0000;
+        }
+
+        .popup-message {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes swirlIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(360deg);
+            }
+        }
+
+        @keyframes swirlOut {
+            0% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+
+<div class="popup-container" id="popup-container"></div>
+
+<div class="popup" id="popup">
+    <img id="aniRemLogo" src="https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png" alt="AniRem Logo">
+    <br>
+    Hey! You might not be using it, but if you are, please disable AdBlock so I can earn money lol.
+    <br>
+    <button class="gotchu-button">"I gotchu"</button>
+    <div class="popup-message" id="popup-message"></div>
+</div>
+
+<script>
+    // Function to check if a week has passed since the last popup shown
+    function isWeekPassed() {
+        var lastPopupTimestamp = localStorage.getItem('lastPopupTimestamp');
+        if (!lastPopupTimestamp) return true;
+        var oneWeekInMillis = 7 * 24 * 60 * 60 * 1000;
+        var currentTimestamp = new Date().getTime();
+        return (currentTimestamp - lastPopupTimestamp) >= oneWeekInMillis;
+    }
+
+    // Function to show the popup
+    function showPopup() {
+        var popup = document.getElementById('popup');
+        var popupContainer = document.getElementById('popup-container');
+        popup.classList.add('show');
+        popupContainer.style.display = 'block';
+        localStorage.setItem('lastPopupTimestamp', new Date().getTime());
+    }
+
+    // Check if a week has passed and show the popup accordingly
+    if (isWeekPassed()) {
+        showPopup();
+    }
+
+    document.querySelector('.gotchu-button').addEventListener('mouseenter', function () {
+        document.getElementById('aniRemLogo').src = 'https://i.ibb.co/RB5bvGw/F42f-Uh-NWEAAh-ELw-removebg.png';
+    });
+
+    document.querySelector('.gotchu-button').addEventListener('mouseleave', function () {
+        document.getElementById('aniRemLogo').src = 'https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png';
+    });
+
+    document.querySelector('.gotchu-button').addEventListener('click', function () {
+        var popup = document.getElementById('popup');
+        var popupContainer = document.getElementById('popup-container');
+        popup.classList.remove('show');
+        popup.classList.add('swirl-out');
+        popupContainer.style.display = 'none';
+
+        var popupMessage = document.getElementById('popup-message');
+        popupMessage.innerText = "This popup will show up again in a week.";
+        popupMessage.style.opacity = '1';
+
+        setTimeout(function() {
+            popupMessage.style.opacity = '0';
+        }, 5000);
+    });
+</script>
+</body>
+</html>

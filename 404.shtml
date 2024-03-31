@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>404</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden; /* Prevent background overflow */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send to the back */
+            background-image: url('https://i.ibb.co/WB41xxV/58767754-p0-master1200.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(5px); /* Increased blur effect */
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            z-index: 1; /* Ensure content is above the background */
+            position: relative;
+            color: #FFFFFF; /* Text color */
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 80vh;
+            margin-bottom: 20px;
+            background-color: #FFA500; /* Orange background */
+            padding: 20px; /* Add padding */
+            border-radius: 50%; /* Rounded container */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .image-container img {
+            width: 300px; /* Adjust this value as needed */
+            height: 300px; /* Adjust this value as needed */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            border-radius: 50%; /* Rounded image */
+            border: 4px solid #FFFFFF; /* White border */
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            font-size: 24px;
+            margin: 0;
+            padding: 10px; /* Add padding */
+        }
+
+        .message a {
+            color: #FFA500; /* Orange color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        .message a:hover {
+            color: #FF0000; /* Red color on hover */
+        }
+
+        .path {
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: dash 4s alternate infinite;
+        }
+
+        @keyframes dash {
+            0%,
+            30% {
+                fill: #FFFFFF; /* Change color */
+                stroke-dashoffset: 0;
+            }
+
+            80%,
+            100% {
+                fill: transparent;
+                stroke-dashoffset: -200;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="main">
+        <div class="image-container">
+            <a href="https://anirem.xyz/" target="_self"> <!-- Open link in same tab -->
+                <img src="https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png"
+                    onmouseover="this.src='https://media.tenor.com/9Lap7-Ko1jIAAAAi/rem-transparent.gif'"
+                    onmouseout="this.src='https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png'"
+                    alt="Image" />
+            </a>
+        </div>
+        <p class="message">Session expired, please go back to <a href="https://anirem.xyz/" target="_self">home page</a></p> <!-- Open link in same tab -->
+    </div>
+
+</body>
+
+</html>
