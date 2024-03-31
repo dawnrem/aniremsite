@@ -65,10 +65,7 @@
                 popupMessage.style.opacity = '0';
             }, 5000);
         });
-    </script>
 
-    <!-- Script to handle 404 errors and redirect -->
-    <script>
         // Function to handle 404 errors
         function handle404Error() {
             window.location.href = 'https://anirem.freewebhostmost.com/';
@@ -76,7 +73,7 @@
 
         // Listen for 404 errors and redirect if they occur
         window.addEventListener('error', function (e) {
-            if (e && e.error && e.error.status === 404) {
+            if (e && e.message === 'Script error.' && e.lineno === 0 && e.colno === 0 && e.filename === '') {
                 handle404Error();
             }
         });
