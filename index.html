@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/OIG4-removebg-preview.png" />
@@ -9,7 +10,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rock+Salt&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rock+Salt&family=Rubik+Moonrocks&display=swap"
+        rel="stylesheet">
 
     <script type="module" crossorigin src="/assets/index-V876AQju1.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-QCBgOqK81.css">
@@ -21,7 +24,8 @@
 
         ::-webkit-scrollbar {
             width: 10px;
-            background-color: black; /* Change scrollbar background color to black */
+            background-color: black;
+            /* Change scrollbar background color to black */
         }
 
         ::-webkit-scrollbar-thumb {
@@ -98,10 +102,36 @@
             animation: fadeIn 0.5s ease-in forwards;
         }
 
+        .support-button {
+            position: fixed;
+            left: 685px;
+            top: 37px;
+            /* Adjusted to 37px */
+            width: 120px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            z-index: 9999;
+            transition: background-color 0.3s;
+        }
+
+        .support-button:hover {
+            background-color: #005000;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -127,24 +157,29 @@
             }
         }
     </style>
-<script type='text/javascript' src='//pl22934608.profitablegatecpm.com/5d/e7/e2/5de7e28e13c31cc0b265a8517fd3ad93.js'></script>
+    <script type='text/javascript'
+        src='//pl22934608.profitablegatecpm.com/5d/e7/e2/5de7e28e13c31cc0b265a8517fd3ad93.js'></script>
 </head>
+
 <body>
-<div id="root"></div>
+    <div id="root"></div>
 
-<div class="popup-container" id="popup-container"></div>
+    <div class="popup-container" id="popup-container"></div>
 
-<div class="popup" id="popup">
-    <img id="aniRemLogo" src="https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png" alt="AniRem Logo">
-    <br>
+    <div class="popup" id="popup">
+        <img id="aniRemLogo" src="https://i.ibb.co/N6mC313/ba0a7098dee85e072b103347e85344f7-removebg.png" alt="AniRem Logo">
+        <br>
     Hey! You might not be using it, but if you are, please disable AdBlock so I can earn money lol.
-    <br>
-    <button class="gotchu-button">"I gotchu"</button>
-    <div class="popup-message" id="popup-message"></div>
-</div>
+        <br>
+        <button class="gotchu-button">"I gotchu"</button>
+        <div class="popup-message" id="popup-message"></div>
+    </div>
 
-<script>
-    // Function to check if a week has passed since the last popup shown
+    <button class="support-button" style="left: 685px; top: 16.7px;"
+        onclick="window.open('https://paypal.me/theanirem?country.x=CA&locale.x=en_US', '_blank')">Support</button>
+
+    <script>
+        // Function to check if a week has passed since the last popup shown
     function isWeekPassed() {
         var lastPopupTimestamp = localStorage.getItem('lastPopupTimestamp');
         if (!lastPopupTimestamp) return true;
@@ -190,6 +225,7 @@
             popupMessage.style.opacity = '0';
         }, 5000);
     });
-</script>
+    </script>
 </body>
+
 </html>
